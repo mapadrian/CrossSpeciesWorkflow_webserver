@@ -53,19 +53,39 @@ $OutputFolder = $_SESSION['OutputFolder'] ;
 
 
 
+	
 
-
-	<div class="table">
+	<div class="table" id="mytable">
 
 		
 		
 		<div class="logs" >
-			<h2>Results</h2>
-			<h3> Job name : </b> <?php echo $JobName; ?> </h3> 
-			<a href="index.php" class="btn btn-primary btn-lg active mb-3 mt-2 text-uppercase" role="button" aria-pressed="true">Start new job</a>
-			<p>Structural prediction results:</p>   
-			
-
+			<table class="header">
+				<tbody>
+					<tr>
+						<td><h2>Results</h2>
+					<h3> Job name : </b> <?php echo $JobName; ?> </h3> 
+					<a href="index.php" class="btn btn-primary btn-lg active mb-3 mt-2 text-uppercase" role="button" aria-pressed="true">Start new job</a>
+					<p>Structural prediction results:</p> </td>
+					<td><div class='my-legend'>
+							<div class='legend-title'>COLOR LEGEND</div>
+							<div class='legend-scale'>
+								<ul class='legend-labels'>
+									<li><span style='background:yellow;'></span>A V L I M C - Amino acizi cu proprietatea ca sunt hidrofobi</li>
+									<li><span style='background:red;'></span>D E - Amino acizi incarcati cu sarcina negativa</li>
+									<li><span style='background:blue;'></span>K R H - Amino acizi incarcati cu sarcina pozitiva</li>
+									<li><span style='background:orange;'></span>F W Y - Hidrofobi aromatici</li>
+									<li><span style='background:#a3cdf6;'></span>S T N Q - Hidrofili cu sarcina neutra</li>
+									<li><span style='background:grey;'></span>P G X - Amino acizi atipici</li>
+								</ul>
+							</div>
+						</div>
+					</td>  
+					
+					
+					</tr>
+				</tbody>
+			</table>
 			<table class="table-sm table-dark table-striped">
 				<tbody id="tby1">
 					<?php
@@ -93,7 +113,37 @@ $OutputFolder = $_SESSION['OutputFolder'] ;
 
 		</div>
 	</div>
-	
+	<script>
+		$('#mytable tr td').each(function(){
+		var cellValue = $(this).html();	
+		
+		
+			if (cellValue.match(/^[AVLIMC]{1,1}$/i)) {
+				
+			$(this).css('color','yellow');
+			}
+		
+			if(cellValue.match(/^[DE]{1,1}$/i)){
+				
+			$(this).css('color','red');
+			}
+		
+				if(cellValue.match(/^[KRH]{1,1}$/i)){
+			$(this).css('color','blue');
+			}
+		
+				if(cellValue.match(/^[FWY]{1,1}$/i)){
+			$(this).css('color','orange');
+			}
+				if(cellValue.match(/^[STNQ]{1,1}$/i)){
+			$(this).css('color','#a3cdf6');
+			}
+				if(cellValue.match(/^[PGX]{1,1}$/i)){
+			$(this).css('color','grey');
+			}
+		
+			});
+	</script>
 	</body>
 
 </html>
