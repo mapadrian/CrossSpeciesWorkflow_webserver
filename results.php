@@ -34,13 +34,13 @@ $OutputFolder = $_SESSION['OutputFolder'] ;
 					<a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="about.php"><i class="fas fa-info-circle"></i> About</a>
+					<a class="nav-link disabled" href="about.php"><i class="fas fa-info-circle"></i> About</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="help.php"><i class="fas fa-question-circle"></i> Help</a>
+					<a class="nav-link disabled" href="help.php"><i class="fas fa-question-circle"></i> Help</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="contact.php"><i class="fas fa-feather-alt"></i> Contact</a>
+					<a class="nav-link disabled" href="contact.php"><i class="fas fa-feather-alt"></i> Contact</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link active" href="result.php"><i class="fas fa-dna"></i> Result</a>
